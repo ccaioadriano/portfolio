@@ -1,11 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css');
 
+
+:root {
+    --font-primary: "Baloo Da 2", serif;;
+    --font-secondary: "Josefin Slab", serif;
+    --font-action: "Muli", serif;
+}
+
+
+
+
 * {
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
     box-sizing: border-box;
 }
+
+
+.hamburguer {
+    /* background-color: red; */
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 100;
+    right: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.show-menu .hamburguer {
+    right: 16rem;
+}
+
+.line {
+    width: 100%;
+    background: white;
+    height: .1rem;
+    box-shadow: .1rem .1rem 1px #000;
+    transition: transform 1s;
+}
+
+.show-menu #line1 {
+    transform: rotate(45deg) translate(0.3rem, 0.45rem);
+}
+
+.show-menu #line2 {
+    opacity: 0;
+    visibility: hidden;
+}
+.show-menu #line3 {
+    transform: rotate(-45deg) translate(0.113rem, -0.45rem);
+}
+  
 
 
 header {
@@ -43,14 +93,13 @@ header {
     position: absolute;
     top: 30%;
     left: 12%;
-    
 }
 
 
 .banner h1 {
     color: white;
     font-size: 3.5rem;
-    font-family: "Baloo Da 2", serif;
+    font-family: var(--font-primary);
     font-weight: 200;
     text-shadow: .3rem 2px rgba(0, 0, 0, .4);
     line-height: 4.5rem;
@@ -62,7 +111,7 @@ header {
 
 .banner p {
     font-size: 1.5rem;
-    font-family: "Josefin Slab", serif;
+    font-family: var(--font-secondary);
     font-weight: 300;
     color: white;
     text-shadow: .3rem  2px rgba(0, 0, 0, .4);
@@ -72,7 +121,7 @@ header {
 }
 
 .banner button {
-    font-family: "Muli", serif;
+    font-family: var(--font-action);
     font-size: 1rem;
     letter-spacing: .1rem;
     text-transform: uppercase;
@@ -84,10 +133,11 @@ header {
     cursor: pointer;
     opacity: 0;
     animation: moveBanner 1s 0.75s forwards;
-    
+    transition: 0.3s;
 }
 header .banner button:hover{
-    opacity: 0.9 !important;
+    /* opacity: 0.9 !important; */
+    background: rgb(47, 100, 237);
 }
 
 @keyframes moveBanner {
@@ -100,5 +150,76 @@ header .banner button:hover{
         opacity: 1;
     }
 }
+
+.sidebar {
+    height: 100vh;
+    width: 20rem;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: -20rem;
+    transition: all 0.7s;
+}
+
+.show-menu .sidebar {
+    right: 0;
+}
+
+.menu {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-item {
+    text-align: center;
+}
+
+.menu-link {
+    font-family: var(--font-action);
+    font-size: 2rem;
+    margin-bottom: .5rem;
+    color: #555;
+    transition: color 0.3s;
+}
+.menu-link:hover{
+    color: rgb(47, 128, 237);
+}
+
+.social-midia {
+    position: absolute;
+    width: 100%;
+    bottom: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+
+.social-midia i {
+    color: rgb(47, 128, 237);
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 2rem;
+    display: flex;
+    /*Alinhar no eixo X*/
+    justify-content: center;
+    /*Alinhar no eixo Y*/
+    align-items: center;
+
+    transition: color 0.3s;
+}
+
+.social-midia i:hover {
+    color: rgb(47, 100, 237);
+}
+
+
+
+
+
+
+
 
 
